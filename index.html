@@ -1,12 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Todo List</title>
 </head>
+
 <body>
-    
+
+    <div class="container mt-4">
+
+
+        <div id="todoHead">
+
+            <div class="row">
+                <div class="text-center">
+                    <h1 class="fw-semibold">Todo List</h1>
+                    <p class="fw-light" id="dateText">Wednesday, July, 27</p>
+                </div>
+            </div>
+
+            <div class="row text-center mt-1">
+                <div class="col-md-4">
+                    <p class="fw-bold" id="totalTodos">
+                        5
+                        <br>
+                        <span class="fw-light fs-3">Total</span>
+                    </p>
+
+                </div>
+                <div class="col-md-4">
+                    <p class="fw-bold" id="remainingTodos">
+                        5
+                        <br>
+                        <span class="fw-light fs-3">Remaining</span>
+                    </p>
+
+                </div>
+                <div class="col-md-4">
+                    <p class="fw-bold" id="doneTodos">
+                        0
+                        <br>
+                        <span class="fw-light fs-3">Done</span>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="todoInoputs">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" value="" placeholder="Add Todo" aria-label="Add Todo" id="txtTodoInput">
+                <button class="btn btn-outline-secondary" type="button" id="btnAddTodo">Add Todo</button>
+            </div>
+        </div>
+
+        <div id="taskListBody">
+            <ul class="list-group" id="todoListItems">
+                
+            </ul>
+        </div>
+
+
+
+    </div>
+
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/91419d5d9e.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
