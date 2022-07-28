@@ -40,10 +40,16 @@ let removeTodoItem = (removeElement) => {
     
 }
 
-let completeTodoTask = (taskID) => {
-    // toggle text-decoration-line-through class to the task item thats equal to taskId
-    let taskItem = document.querySelector(`[data-taskid="${taskID}"]`)
-    taskItem.classList.toggle('text-decoration-line-through')
+let completeTodoTask = (inputElement) => {
+    
+    if (!inputElement.checked) {
+        inputElement.parentElement.classList.remove('text-decoration-line-through')
+    } else {
+        inputElement.parentElement.classList.add('text-decoration-line-through')
+    }
+        
+    
+   
 }
 
 btnAddTodo.addEventListener('click', () => {
@@ -60,15 +66,14 @@ taskListBody.addEventListener('click', (e) =>{
             break;
         case "I":  
             removeTodoItem(e.target);
-            
             break;
     }
     
 })
 
 taskListBody.addEventListener("change", (e) => {
-    if (e.target.className === "checkbox") {
-        completeTodoTask()
+    if (e.target.type === "checkbox") {
+        completeTodoTask(e.target)
     }
         
     }

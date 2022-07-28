@@ -1,3 +1,7 @@
 .container{
     width: 40vw;
 }
+
+.complete {
+    text-decoration: line-through;
+}
