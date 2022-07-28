@@ -4,10 +4,15 @@ let todoListItems = document.querySelector('#todoListItems')
 let totalTasks = document.querySelector('#totalTasks')
 let totalTaskRemaining = document.querySelector('#totalTaskRemaining')
 let totalTasksDone = document.querySelector('#totalTasksDone')
+let dateText = document.querySelector('#dateText')
 
 
 let taskListBody = document.querySelector('#taskListBody')
 let todoArray = [];
+
+
+dateText.innerHTML = moment().format("dddd, MMMM, D")
+
 
 let todoItemMaker = (todoText, id) =>{
     return `
@@ -32,13 +37,6 @@ let addTodoItem = () => {
     if (txtTodoInput.value === "" || txtTodoInput.value === " ") {
         return 
     }
-
-    // let uuid = todoArray.length +1 
-    // todoArray.push({
-    //     id: uuid,
-    //     text: txtTodoInput.value,
-    //     completed: false
-    // });
 
     // add id, text and completed status to todoArray
     let uuid = todoArray.length + 1;
@@ -89,7 +87,6 @@ let completeTodoTask = (inputElement) => {
 
     updateTotals();
     
-   
 }
 
 
@@ -121,6 +118,8 @@ txtTodoInput.addEventListener('keypress', (e) => {
         addTodoItem();
     }
 })
+
+
 
 
 
