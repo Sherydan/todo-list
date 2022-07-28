@@ -10,8 +10,8 @@ let todoItemMaker = (todoText, id) =>{
     return `
     <li class="list-group-item d-flex justify-content-between align-items-start">
         <input class="form-check-input me-1" type="checkbox" data-task-id="${id}">
-        <label class="form-check-label" for="firstCheckbox" >${todoText}</label>
-        <i class="fa-solid fa-trash-can"></i>
+        <label class="form-check-label" for="firstCheckbox" data-task-id="${id} >${todoText}</label>
+        <i class="fa-solid fa-trash-can" data-task-id="${id}></i>
     </li>
     `
 }
