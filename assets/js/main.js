@@ -1,6 +1,9 @@
 let txtTodoInput = document.querySelector('#txtTodoInput')
 let btnAddTodo = document.querySelector('#btnAddTodo');
 let todoListItems = document.querySelector('#todoListItems')
+let totalTasks = document.querySelector('#totalTasks')
+let totalTaskRemaining = document.querySelector('#totalTaskRemaining')
+let totalTasksDone = document.querySelector('#totalTasksDone')
 
 
 let taskListBody = document.querySelector('#taskListBody')
@@ -15,6 +18,14 @@ let todoItemMaker = (todoText, id) =>{
     </li>
     `
 }
+
+// update total tasks, total tasks remaining and total tasks done
+let updateTotals = () => {
+    totalTasks.innerHTML = todoArray.length;
+    totalTaskRemaining.innerHTML = todoArray.filter(todo => !todo.completed).length;
+    totalTasksDone.innerHTML = todoArray.filter(todo => todo.completed).length;
+}
+
 
 let addTodoItem = () => {
     // add new item to list
@@ -41,6 +52,7 @@ let addTodoItem = () => {
 
     todoListItems.innerHTML +=  todoItemMaker(txtTodoInput.value, uuid);
     txtTodoInput.value = "";
+    updateTotals();
 }
 
 let removeTodoItem = (removeElement) => {
@@ -52,6 +64,9 @@ let removeTodoItem = (removeElement) => {
     }
     )
     removeElement.parentElement.remove();
+    console.log(todoArray);
+
+    updateTotals();
 }
 
 let completeTodoTask = (inputElement) => {
@@ -66,17 +81,19 @@ let completeTodoTask = (inputElement) => {
 
     console.log(todoArray)
 
-
-    
     if (!inputElement.checked) {
         inputElement.parentElement.classList.remove('text-decoration-line-through')
     } else {
         inputElement.parentElement.classList.add('text-decoration-line-through')
     }
-        
+
+    updateTotals();
     
    
 }
+
+
+
 
 btnAddTodo.addEventListener('click', () => {
     addTodoItem();
@@ -84,12 +101,6 @@ btnAddTodo.addEventListener('click', () => {
 
 taskListBody.addEventListener('click', (e) =>{
     switch (e.target.tagName) {
-        case "INPUT":
-            
-            break;
-        case "LABEL":
-
-            break;
         case "I":  
             removeTodoItem(e.target);
             break;
