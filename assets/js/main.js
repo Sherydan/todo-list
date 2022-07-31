@@ -44,6 +44,11 @@ let addTodoItem = () => {
 
   // add id, text and completed status to todoArray
   let uuid = todoArray.length + 1;
+  // chek if the uuid is already in the array
+  while (todoArray.some((todo) => todo.id === uuid)) {
+    uuid++;
+  }
+  
   todoArray.push({
     id: uuid,
     text: txtTodoInput.value,
