@@ -52,7 +52,11 @@ let addTodoItem = () => {
 
   console.log(todoArray);
 
-  todoListItems.innerHTML += todoItemMaker(txtTodoInput.value, uuid);
+  // add list item to todoListItems
+  // is this way of adding a list item is better than using innerHTML because it doesnt reset the entire list each time we add a new item
+  todoListItems.insertAdjacentHTML ("beforeend", todoItemMaker(txtTodoInput.value, uuid));
+
+  // todoListItems.innerHTML += todoItemMaker(txtTodoInput.value, uuid);
   txtTodoInput.value = "";
   updateTotals();
 };
